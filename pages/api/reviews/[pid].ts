@@ -2,13 +2,16 @@ import { NextApiRequest, NextApiResponse } from "next";
 import Review from "../../../schema/Review";
 import User from "../../../schema/User";
 import intiDb from "../../../utils/db";
+import type { UserType } from "../../../types/user/userType";
 intiDb();
-const fun = async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
 	switch (req.method) {
 		case "GET":
 			await getComments(req, res);
+			break;
 		case "POST":
 			await postComment(req, res);
+			break;
 		default:
 			break;
 	}
@@ -23,8 +26,16 @@ const getComments = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const postComment = async (req: NextApiRequest, res: NextApiResponse) => {
 	const { pid } = req.query;
+	const incomingUser: UserType = req.body.user;
 	// creating user
-	const user = new User(req.body.user);
+	console.log(incomingUser);
+	const user = new User({
+		name: {
+			firstName: incomingUser.name.firstName,
+			lastName: incomingUser.name.lastName,
+		},
+		imageUrl: incomingUser.imageUrl,
+	});
 	await user.save();
 	// creating review
 	const review = new Review({
@@ -37,4 +48,3 @@ const postComment = async (req: NextApiRequest, res: NextApiResponse) => {
 	res.json(retValue);
 	res.end();
 };
-export default fun;
