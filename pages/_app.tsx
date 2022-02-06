@@ -7,6 +7,7 @@ import { Layout } from "../components";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 import { extendTheme } from "@chakra-ui/react";
 import { PersistGate } from "redux-persist/integration/react";
+import Head from "next/head";
 const breakpoints = createBreakpoints({
 	sm: "320px",
 	md: "768px",
@@ -20,6 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<PersistGate persistor={persistor}>
 				<ChakraProvider theme={theme}>
 					<Layout>
+						<Head>
+							<title>Disecto - One place to get products</title>
+						</Head>
 						<Component {...pageProps} />
 					</Layout>
 				</ChakraProvider>

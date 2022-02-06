@@ -8,6 +8,7 @@ import {
 	Stack,
 	Text,
 } from "@chakra-ui/react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -23,13 +24,11 @@ const Productetail = () => {
 		(state: RootState) => state.routeProduct
 	);
 	const productList = useSelector((state: RootState) => state.products);
-	useEffect(() => {
-		if (!product?.title) {
-			console.log(console.log(productList));
-		}
-	}, [product, router]);
 	return (
 		<Box w={{ md: "80%", sm: "90%" }} p={"1rem"} margin={"auto"}>
+			<Head>
+				<title>{product.title}</title>
+			</Head>
 			{/* Go back button */}
 			<Stack direction={{ lg: "row", md: "column" }} spacing={2}>
 				<Button
