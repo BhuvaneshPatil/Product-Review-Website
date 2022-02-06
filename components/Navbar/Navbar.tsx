@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { searchHandler } from "../../utils/searchHandler";
 import { RootState } from "../../redux/store";
 import { ProductType } from "../../types";
+import { Avatar, Box } from "@chakra-ui/react";
+import UserSection from "./UserSection";
 
 const Navbar = () => {
 	// state for query
@@ -55,6 +57,9 @@ const Navbar = () => {
 				searchString={searchQuery}
 				notFound={notFound}
 			/>
+			<Box order={{ sm: 2, md: 3 }}>
+				<UserSection />
+			</Box>
 		</NavbarContainer>
 	);
 };

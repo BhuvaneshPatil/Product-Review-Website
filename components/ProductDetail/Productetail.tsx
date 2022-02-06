@@ -22,8 +22,14 @@ const Productetail = () => {
 	let product: ProductType = useSelector(
 		(state: RootState) => state.routeProduct
 	);
+	const productList = useSelector((state: RootState) => state.products);
+	useEffect(() => {
+		if (!product?.title) {
+			console.log(console.log(productList));
+		}
+	}, [product, router]);
 	return (
-		<Box w={"80%"} p={"1rem"} margin={"auto"}>
+		<Box w={{ md: "80%", sm: "90%" }} p={"1rem"} margin={"auto"}>
 			{/* Go back button */}
 			<Stack direction={{ lg: "row", md: "column" }} spacing={2}>
 				<Button

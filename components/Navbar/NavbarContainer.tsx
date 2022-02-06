@@ -9,9 +9,10 @@ const NavbarContainer = ({ children }: NavbarContainerProps) => {
 			<Flex
 				w="100%"
 				as="nav"
-				direction={{ sm: "column", lg: "row" }}
+				// direction={{ sm: "column", lg: "row" }}
 				align="center"
 				justify="space-between"
+				wrap={"wrap"}
 				mb={4}
 				p={8}
 			>

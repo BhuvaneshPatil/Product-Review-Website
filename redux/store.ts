@@ -5,14 +5,22 @@ import thunk from "redux-thunk";
 import productReducer from "./reducers/productReducer";
 import productRouteReducer from "./reducers/productRouteReducer";
 import userReducer from "./reducers/userReducer";
+import { persistStore, persistReducer } from "redux-persist";
 
+import storage from "redux-persist/lib/storage";
 const rootReducer = combineReducers({
 	products: productReducer,
 	routeProduct: productRouteReducer,
 	user: userReducer,
 });
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const persistConfig = {
+	key: "root",
+	storage,
+};
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 export type RootState = ReturnType<typeof rootReducer>;
-export const wrapper = createWrapper(store, { debug: true });
+
+export const store = createStore(persistedReducer, applyMiddleware(thunk));
+export let persistor = persistStore(store);

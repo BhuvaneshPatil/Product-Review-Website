@@ -7,3 +7,8 @@ export const addUserToStore = () => async (dispatch) => {
 		dispatch({ type: actionNames.ADD_USER, payload: data });
 	} catch (error) {}
 };
+export const logout = () => async (dispatch) => {
+	try {
+		dispatch({ type: actionNames.LOG_OUT });
+	} catch (error) {}
+};

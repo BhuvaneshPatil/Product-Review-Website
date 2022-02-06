@@ -28,7 +28,6 @@ const postComment = async (req: NextApiRequest, res: NextApiResponse) => {
 	const { pid } = req.query;
 	const incomingUser: UserType = req.body.user;
 	// creating user
-	console.log(incomingUser);
 	const user = new User({
 		name: {
 			firstName: incomingUser.name.firstName,

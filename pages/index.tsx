@@ -21,9 +21,6 @@ const Home: NextPage = () => {
 		if (!products.length) {
 			dispatch(putProducts());
 		}
-		if (!user?.name?.firstName) {
-			dispatch(addUserToStore());
-		}
 	}, []);
 	if (!products.length) {
 		return (

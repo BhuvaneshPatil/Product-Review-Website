@@ -34,7 +34,14 @@ const SearchBar = ({
 	const isMobile = useMediaQuery("(max-width: 400px)");
 
 	return (
-		<Box position={"relative"} ml={"1rem"} w={"80%"} flex={"1"}>
+		<Box
+			position={"relative"}
+			ml={"1rem"}
+			mr={"1rem"}
+			mt={{ sm: "0.5rem", md: "0" }}
+			w={{ md: "60%", sm: "100%" }}
+			order={{ sm: 3, md: 2 }}
+		>
 			<InputGroup
 				verticalAlign={"center"}
 				boxShadow={"md"}
