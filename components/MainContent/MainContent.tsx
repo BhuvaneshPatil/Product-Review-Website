@@ -10,7 +10,7 @@ const MainContent = () => {
 	});
 	return (
 		<Box mt={"2rem"}>
-			<ProductList products={products} />;
+			<ProductList products={products} />
 		</Box>
 	);
 };

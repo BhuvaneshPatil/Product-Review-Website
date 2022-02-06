@@ -20,7 +20,6 @@ import Rating from "./Rating";
 const ProductCard = ({ product }: ProductCardProps) => {
 	const router = useRouter();
 	const dispatch = useDispatch();
-	useEffect(() => {}, []);
 	return (
 		<Box
 			boxShadow={"lg"}
