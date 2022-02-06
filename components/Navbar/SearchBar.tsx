@@ -9,14 +9,12 @@ import {
 	ListItem,
 	Divider,
 	Image,
-	HStack,
-	VStack,
 	useMediaQuery,
 } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
 import { SearchBarProps } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import slugify from "slugify";
 import { putRouteProduct } from "../../redux/actions/productActions";

@@ -10,9 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import slugify from "slugify";
 import { RootState } from "../../redux/store";
 import { ProductType } from "../../types";
 import Rating from "../MainContent/Rating";

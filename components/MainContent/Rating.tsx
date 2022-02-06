@@ -1,7 +1,6 @@
 import { StarIcon } from "@chakra-ui/icons";
 import { Box, Text } from "@chakra-ui/react";
 import { useMemo } from "react";
-import { FiStar } from "react-icons/fi";
 import type { RatingProps } from "../../types";
 
 const Rating = ({ numReviews, rating, price }: RatingProps) => {

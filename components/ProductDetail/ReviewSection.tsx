@@ -10,13 +10,13 @@ import {
 	useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { duration } from "moment";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { UserType } from "../../types/user/userType";
 import { getReviewsForProduct } from "../../utils/api/getReviews";
+import LoadingSpinner from "../Layout/LoadingSpinner";
 import ReviewBlock from "./ReviewBlock";
 import UserBlock from "./UserBlock";
 
@@ -27,9 +27,15 @@ const ReviewSection = ({ product }) => {
 	const [reviewContent, setReviewContent] = useState("");
 	const [reviews, setReviews] = useState([]);
 	const [isAuth, setIsAuth] = useState(false);
+	const [isLoading, setisLoading] = useState(false);
 	useEffect(() => {
 		setIsAuth(!!window.localStorage.getItem("token"));
-		getReviewsForProduct(product.id).then((data) => setReviews(data));
+		setisLoading(true);
+		getReviewsForProduct(product.id)
+			.then((data) => {
+				setReviews(data);
+			})
+			.finally(() => setisLoading(false));
 	}, [user]);
 	const handleSubmit = () => {
 		axios
@@ -104,7 +110,9 @@ const ReviewSection = ({ product }) => {
 				)}
 			</Box>
 			{/* Display reviews */}
-			{reviews.length > 0 ? (
+			{isLoading ? (
+				<LoadingSpinner />
+			) : reviews.length > 0 ? (
 				<List mt={"2rem"}>
 					{reviews.map((item, index) => (
 						<>

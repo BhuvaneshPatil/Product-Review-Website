@@ -3,14 +3,11 @@ import {
 	Badge,
 	Box,
 	Button,
-	Center,
-	Flex,
 	Image,
 	Stack,
 	Text,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import slugify from "slugify";
 import { putRouteProduct } from "../../redux/actions/productActions";

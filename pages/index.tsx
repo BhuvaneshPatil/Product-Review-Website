@@ -9,6 +9,7 @@ import { ProductType } from "../types";
 import { Box, Flex, Spinner } from "@chakra-ui/react";
 import { addUserToStore } from "../redux/actions/userActions";
 import { UserType } from "../types/user/userType";
+import LoadingSpinner from "../components/Layout/LoadingSpinner";
 const Home: NextPage = () => {
 	const dispatch = useDispatch();
 	const products: ProductType[] = useSelector((state: RootState) => {
@@ -23,17 +24,7 @@ const Home: NextPage = () => {
 		}
 	}, []);
 	if (!products.length) {
-		return (
-			<Flex w={"100%"} justify={"center"} h={"60vh"} align={"center"}>
-				<Spinner
-					thickness="4px"
-					speed="0.65s"
-					emptyColor="gray.200"
-					color="blue.500"
-					size="xl"
-				/>
-			</Flex>
-		);
+		return <LoadingSpinner />;
 	}
 	return <MainContent />;
 };
