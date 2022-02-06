@@ -35,6 +35,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 -   Add more "from similar categories" to product detail page
 
+-   Add pagination to reviews and product listing page.
+
 -   Add functionalities like filtering and sorting.
 
 -   Refactoring code like creating reusable components
