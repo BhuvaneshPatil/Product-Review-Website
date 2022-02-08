@@ -22,7 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<ChakraProvider theme={theme}>
 					<Layout>
 						<Head>
-							<title>Disecto - One place to get products</title>
+							<title>
+								Discommerce - One place to get products
+							</title>
 						</Head>
 						<Component {...pageProps} />
 					</Layout>
